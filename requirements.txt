@@ -1,0 +1,6 @@
+torch>=2.0.0
+numpy>=1.24.0
+matplotlib>=3.8.0
+PyQt6>=6.5.0
+flask>=3.0.0
+imageio>=2.30.0
