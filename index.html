@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Structural Health Monitoring Portal</title>
+  <style>
+    :root {
+      --bg: #f1f5f9;
+      --card-bg: #ffffff;
+      --border: #cbd5e1;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --dt-accent: #0284c7;
+      --ews-accent: #059669;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      margin: 0; padding: 40px 20px;
+      display: flex; justify-content: center; align-items: center; min-height: 80vh;
+    }
+    .hub-container { max-width: 840px; width: 100%; }
+    .hub-header { margin-bottom: 24px; border-bottom: 2px solid var(--border); padding-bottom: 14px; }
+    .hub-title { font-size: 22px; font-weight: 800; color: var(--text-main); margin: 0 0 6px 0; }
+    .hub-subtitle { font-size: 13px; color: var(--text-muted); margin: 0; }
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 20px; }
+    .portal-card {
+      display: flex; flex-direction: column; justify-content: space-between;
+      background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px;
+      padding: 24px; text-decoration: none; color: inherit; position: relative; overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .portal-card::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; }
+    .portal-card.digital-twin::before { background-color: var(--dt-accent); }
+    .portal-card.ews::before { background-color: var(--ews-accent); }
+    .portal-card:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08); }
+    .badge {
+      display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 4px; margin-bottom: 12px; width: fit-content;
+    }
+    .digital-twin .badge { background: #e0f2fe; color: var(--dt-accent); }
+    .ews .badge { background: #d1fae5; color: var(--ews-accent); }
+    .card-title { font-size: 17px; font-weight: 700; color: var(--text-main); margin: 0 0 8px 0; }
+    .card-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin: 0 0 20px 0; }
+    .card-action { display: flex; align-items: center; font-size: 12px; font-weight: 700; }
+    .digital-twin .card-action { color: var(--dt-accent); }
+    .ews .card-action { color: var(--ews-accent); }
+    .card-action svg { margin-left: 6px; }
+  </style>
+</head>
+<body>
+  <div class="hub-container">
+    <div class="hub-header">
+      <h1 class="hub-title">STRUCTURAL HEALTH MONITORING PORTAL</h1>
+      <p class="hub-subtitle">Operational Infrastructure · Live Telemetry, Digital Twin & Anomaly Detection</p>
+    </div>
+    <div class="cards-grid">
+      <a href="/digital-twin" target="_blank" rel="noopener noreferrer" class="portal-card digital-twin">
+        <div>
+          <span class="badge">Finite Element Surrogate</span>
+          <h2 class="card-title">3D Structural Digital Twin</h2>
+          <p class="card-desc">
+            Full-field displacement tracking, internal prestress force distribution across 15 tendons, interactive nodal strain/stress profiling, and rainflow fatigue accumulation.
+          </p>
+        </div>
+        <div class="card-action">Launch Twin Dashboard <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+      <a href="/early-warning" target="_blank" rel="noopener noreferrer" class="portal-card ews">
+        <div>
+          <span class="badge">Unsupervised Machine Learning</span>
+          <h2 class="card-title">Early Warning System (EWS)</h2>
+          <p class="card-desc">
+            Real-time deep learning anomaly identification, baseline deviation tracking, continuous Anomaly Index (AI) trajectories, and multi-state health categorization.
+          </p>
+        </div>
+        <div class="card-action">Launch EWS Dashboard <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+    </div>
+  </div>
+</body>
+</html>
